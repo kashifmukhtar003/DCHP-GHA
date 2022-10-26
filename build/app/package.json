@@ -15,11 +15,10 @@
     "postinstall": "yarn electron-rebuild && yarn link-modules",
     "package-linux": "electron-packager .  dchp --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
     "copy-scripts":"cp -r ../../scripts release-builds/dchp-linux-x64",
-    "copy-env":"cp -r ../../.env release-builds/dchp-linux-x64/scripts",
     "create-debian-installer":"electron-installer-debian --src release-builds/dchp-linux-x64/ --dest release-builds/installers/ --arch amd64 --config config.json",
     "copy-build-files":"cp -r release-builds/dchp-linux-x64/* dchp/usr/lib/dchp",
     "create-package":"dpkg-deb --build --root-owner-group dchp",
-    "build:linux":"yarn package-linux && yarn copy-scripts && yarn copy-env && yarn create-debian-installer"
+    "build:linux":"yarn package-linux && yarn copy-scripts && yarn create-debian-installer"
   },
   "license": "MIT",
   "dependencies": {
